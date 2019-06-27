@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using AppVentas.ViewModel;
-using AppVentas.Model;
+using TareaSqlite.ViewModel;
+using TareaSqlite.Model;
 
-namespace AppVentas.View
+namespace TareaSqlite.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VentasView : ContentPage

@@ -1,53 +1,107 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppVentas.View.VentasView">
+             x:Class="Appf.Views.LoginPage"
+              BindingContext="{Binding Main,Source={StaticResource Locator}}"
+             Title="login"
+    >
     <ContentPage.Content>
-        <StackLayout
-            Orientation="Vertical"
-            Padding="20"
-            Spacing="10">
+        <ScrollView
+            BindingContext="{Binding Login}">
+            <StackLayout
+            BackgroundColor="Green"
+            Padding="10,20,10,5">
+                <Label 
+                
+                FontAttributes="Italic"
+                FontSize="Large"
+                Text="Sqlite"
+               
+                TextColor="Black"
+                Font="50"
+                HorizontalOptions="Center">
+                </Label>
+                <Image
+                Aspect="AspectFit"
+                Source="upsa1"
+                WidthRequest="400"
+                    HeightRequest="300"
 
-            <Label Text="Registro de Ventas"
+                        >
+                </Image>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+
+
+
+                    </Grid.ColumnDefinitions>
+
+                    <Label 
+                
+                
                 FontSize="Medium"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                Text="E-mail"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                
+                TextColor="Black"
+                BackgroundColor="White"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"
+               >
+                    </Label>
+                    <Entry
+               Placeholder="Enter your email...." 
+                Keyboard="Email"
+                PlaceholderColor="White"
+                     Grid.Row="0"
+                    Grid.Column="1"
+                        Text="{Binding Email,Mode=TwoWay}"
+                >
 
-            <Entry x:Name="dProducto"
-                   Placeholder="Producto"/>
-            <Entry x:Name="dCantidad"
-                   Placeholder="Cantidad"/>
-            <DatePicker
-                x:Name="DatePicker"
-                Format="D"
-                Margin="30,0,0,30"
-                Date="{Binding SelectedDate}"/>
-            <Button x:Name="BInsert"
-                    Text="Insertar Venta"
-                    Clicked="BInsert_Clicked"/>
-            <Button x:Name="BListar"
-                    Text="Listar Ventas"
-                    Clicked="BListar_Clicked"/>
+                    </Entry>
+                    <Label 
+                
+                FontAttributes="Bold"
+                FontSize="Medium"
+                Text="Password"
+                 Grid.Row="1"
+                    Grid.Column="0"
+                TextColor="Black"
+                BackgroundColor="White"
+                    VerticalOptions="Center"
+                    
+               >
+                    </Label>
+                    <Entry
+               Placeholder="Enter your password...." 
+                IsPassword="True"
+                PlaceholderColor="White"
+                     Grid.Row="1"
+                    Grid.Column="1"
+                        Text="{Binding Password,Mode=TwoWay}">
 
-            <Label x:Name="StatusMessage"
-                   FontSize="Medium"/>
+                    </Entry>
+                </Grid>
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning,Mode=TwoWay}"
+                    VerticalOptions="CenterAndExpand">
 
-            <ListView x:Name="listaventas">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid>
-                                <Label Text="{Binding Producto}"/>
-                                <Label Grid.Column="1"
-                                       Text="{Binding Cantidad}"/>
-                                <Label Grid.Column="2"
-                                       Text="{Binding Fecha}"/>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </ActivityIndicator>
+                <Button
+                Text="Login"
+                IsEnabled="{Binding IsEnable,Mode=TwoWay}"
+                BackgroundColor="White"
+                    BorderRadius="23"
+                    Command="{Binding LoginCommand}"
+                    >
 
-        </StackLayout>
+                </Button>
+
+            </StackLayout>
+        </ScrollView>
+
     </ContentPage.Content>
 </ContentPage>

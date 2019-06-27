@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using SQLite;
 
-namespace AppVentas.Model
+namespace TareaSqlite.Model
 {
     [Table("Listado")]
     public class Ventas

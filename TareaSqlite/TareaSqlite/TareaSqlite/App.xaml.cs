@@ -1,17 +1,19 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using TareaSqlite.View;
+using TareaSqlite.ViewModel;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace TareaSqlite
 {
     public partial class App : Application
     {
-        public App()
+        public App(string filename)
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            VentasViewModel.Inicializador(filename);
+            this.MainPage = new NavigationPage(new VentasView());
         }
 
         protected override void OnStart()
@@ -30,3 +32,4 @@ namespace TareaSqlite
         }
     }
 }
+
